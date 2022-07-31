@@ -6,6 +6,7 @@ class Snake:
         self.all_turtles = []
         self.x_cor = 0
         self.generate()
+        self.head = self.all_turtles[0]
     def generate(self):
         for x in range(3):
             newsquare = Turtle(shape='square')
@@ -15,15 +16,19 @@ class Snake:
             self.all_turtles.append(newsquare)
             self.x_cor -= 20
     def up(self):
-        self.all_turtles[0].setheading(90)
+        if self.head.heading() != 270:
+            self.head.setheading(90)
     def down(self):
-        self.all_turtles[0].setheading(270)
+        if self.head.heading() != 90:
+            self.head.setheading(270)
 
     def left(self):
-        self.all_turtles[0].setheading(180)
+        if self.head.heading() != 0:
+            self.head.setheading(180)
 
     def right(self):
-        self.all_turtles[0].setheading(0)
+        if self.head.heading() != 180:
+            self.head.setheading(0)
 
 
     def move(self):
