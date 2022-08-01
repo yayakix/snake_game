@@ -15,6 +15,16 @@ class Snake:
             newsquare.goto(self.x_cor, 0)
             self.all_turtles.append(newsquare)
             self.x_cor -= 20
+    def add_segment(self,position):
+        newsquare = Turtle(shape='square')
+        newsquare.color('white')
+        newsquare.penup()
+        newsquare.goto(position)
+        self.all_turtles.append(newsquare)
+
+    def extend(self):
+        self.add_segment(self.all_turtles[-1].position())
+
     def up(self):
         if self.head.heading() != 270:
             self.head.setheading(90)
@@ -37,4 +47,6 @@ class Snake:
             new_y = self.all_turtles[x - 1].ycor()
             self.all_turtles[x].goto(new_x, new_y)
         self.all_turtles[0].forward(20)
+
+
 
