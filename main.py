@@ -33,15 +33,16 @@ while game_on:
         scoreboard.add_one()
     # detect wall collision
     if snake.head.xcor() > 285 or snake.head.xcor() < -285 or snake.head.ycor() > 285 or snake.head.ycor() <-285:
-        game_on = False
+        # game_on = False
         scoreboard.reset_score()
+        snake.reset_snake()
     # detect tail collision
     for x in snake.all_turtles:
         if x == snake.head:
             pass
         elif snake.head.distance(x) < 10:
             game_on = False
-            scoreboard.reset_score()
+
 
     # game_on = False
 

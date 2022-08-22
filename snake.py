@@ -47,6 +47,14 @@ class Snake:
             new_y = self.all_turtles[x - 1].ycor()
             self.all_turtles[x].goto(new_x, new_y)
         self.all_turtles[0].forward(20)
+    def reset_snake(self):
+        for turt in self.all_turtles:
+            turt.goto(1000,1000)
+        self.all_turtles.clear()
+        self.generate()
+        self.head = self.all_turtles[0]
+
+
 
 
 
